@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct TravelToKeelungSwiftUIApp: App {
+    
+//    @StateObject private var DataModel = DataServiceViewModel()
+    @StateObject private var locationsVM = LocationsViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LocationsView()
+                .environmentObject(locationsVM)
+//                .environmentObject(DataServiceViewModel())
+//            ContentView()
         }
     }
 }

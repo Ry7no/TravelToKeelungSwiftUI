@@ -11,6 +11,16 @@
 		518F3996285DDC0600B8C755 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518F3995285DDC0600B8C755 /* ContentView.swift */; };
 		518F3998285DDC0800B8C755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518F3997285DDC0800B8C755 /* Assets.xcassets */; };
 		518F399B285DDC0800B8C755 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518F399A285DDC0800B8C755 /* Preview Assets.xcassets */; };
+		518F39AA285DDF8400B8C755 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518F39A9285DDF8400B8C755 /* Location.swift */; };
+		51EBBDAB285F81D000513E36 /* LocationMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EBBDAA285F81D000513E36 /* LocationMapAnnotationView.swift */; };
+		51EBBDAD285F86CC00513E36 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EBBDAC285F86CB00513E36 /* LocationDetailView.swift */; };
+		51F28874285F14CE00F84B33 /* KeelungCoastView.json in Resources */ = {isa = PBXBuildFile; fileRef = 51F28873285F14CE00F84B33 /* KeelungCoastView.json */; };
+		51F28876285F4EE800F84B33 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F28875285F4EE800F84B33 /* DataService.swift */; };
+		51F28878285F538400F84B33 /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F28877285F538400F84B33 /* LocationsView.swift */; };
+		51F2887A285F563000F84B33 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F28879285F563000F84B33 /* LocationViewModel.swift */; };
+		51F2887C285F5C4200F84B33 /* LocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2887B285F5C4200F84B33 /* LocationsListView.swift */; };
+		51F28881285F741100F84B33 /* LocationPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F28880285F741100F84B33 /* LocationPreview.swift */; };
+		FD80C92A28603B65003CAB02 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FD80C92928603B65003CAB02 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +29,15 @@
 		518F3995285DDC0600B8C755 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		518F3997285DDC0800B8C755 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		518F399A285DDC0800B8C755 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		518F39A9285DDF8400B8C755 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		51EBBDAA285F81D000513E36 /* LocationMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapAnnotationView.swift; sourceTree = "<group>"; };
+		51EBBDAC285F86CB00513E36 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
+		51F28873285F14CE00F84B33 /* KeelungCoastView.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = KeelungCoastView.json; sourceTree = "<group>"; };
+		51F28875285F4EE800F84B33 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		51F28877285F538400F84B33 /* LocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
+		51F28879285F563000F84B33 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		51F2887B285F5C4200F84B33 /* LocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListView.swift; sourceTree = "<group>"; };
+		51F28880285F741100F84B33 /* LocationPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD80C92A28603B65003CAB02 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +71,10 @@
 		518F3992285DDC0600B8C755 /* TravelToKeelungSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				51F28873285F14CE00F84B33 /* KeelungCoastView.json */,
+				518F39A6285DDDE000B8C755 /* Models */,
+				518F39A5285DDDD900B8C755 /* ViewModels */,
+				518F39A4285DDDD200B8C755 /* Views */,
 				518F3993285DDC0600B8C755 /* TravelToKeelungSwiftUIApp.swift */,
 				518F3995285DDC0600B8C755 /* ContentView.swift */,
 				518F3997285DDC0800B8C755 /* Assets.xcassets */,
@@ -65,6 +89,35 @@
 				518F399A285DDC0800B8C755 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		518F39A4285DDDD200B8C755 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				51F28877285F538400F84B33 /* LocationsView.swift */,
+				51F2887B285F5C4200F84B33 /* LocationsListView.swift */,
+				51F28880285F741100F84B33 /* LocationPreview.swift */,
+				51EBBDAA285F81D000513E36 /* LocationMapAnnotationView.swift */,
+				51EBBDAC285F86CB00513E36 /* LocationDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		518F39A5285DDDD900B8C755 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				51F28875285F4EE800F84B33 /* DataService.swift */,
+				51F28879285F563000F84B33 /* LocationViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		518F39A6285DDDE000B8C755 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				518F39A9285DDF8400B8C755 /* Location.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +136,9 @@
 			dependencies = (
 			);
 			name = TravelToKeelungSwiftUI;
+			packageProductDependencies = (
+				FD80C92928603B65003CAB02 /* SDWebImageSwiftUI */,
+			);
 			productName = TravelToKeelungSwiftUI;
 			productReference = 518F3990285DDC0600B8C755 /* TravelToKeelungSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +167,9 @@
 				Base,
 			);
 			mainGroup = 518F3987285DDC0600B8C755;
+			packageReferences = (
+				FD80C92828603B65003CAB02 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 518F3991285DDC0600B8C755 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51F28874285F14CE00F84B33 /* KeelungCoastView.json in Resources */,
 				518F399B285DDC0800B8C755 /* Preview Assets.xcassets in Resources */,
 				518F3998285DDC0800B8C755 /* Assets.xcassets in Resources */,
 			);
@@ -138,6 +198,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				518F3996285DDC0600B8C755 /* ContentView.swift in Sources */,
+				51EBBDAB285F81D000513E36 /* LocationMapAnnotationView.swift in Sources */,
+				51F2887C285F5C4200F84B33 /* LocationsListView.swift in Sources */,
+				51F2887A285F563000F84B33 /* LocationViewModel.swift in Sources */,
+				51F28881285F741100F84B33 /* LocationPreview.swift in Sources */,
+				518F39AA285DDF8400B8C755 /* Location.swift in Sources */,
+				51F28878285F538400F84B33 /* LocationsView.swift in Sources */,
+				51F28876285F4EE800F84B33 /* DataService.swift in Sources */,
+				51EBBDAD285F86CC00513E36 /* LocationDetailView.swift in Sources */,
 				518F3994285DDC0600B8C755 /* TravelToKeelungSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,7 +263,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -249,7 +317,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -339,6 +407,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FD80C92828603B65003CAB02 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FD80C92928603B65003CAB02 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD80C92828603B65003CAB02 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 518F3988285DDC0600B8C755 /* Project object */;
 }
