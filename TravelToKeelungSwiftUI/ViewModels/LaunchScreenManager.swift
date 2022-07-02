@@ -24,8 +24,6 @@ final class LaunchScreenManager: ObservableObject {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.state = .completed
         }
-    }
-    
-    
+    }  
 }
 

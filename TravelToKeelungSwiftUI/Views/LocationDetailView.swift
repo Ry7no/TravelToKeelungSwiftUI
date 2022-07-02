@@ -47,27 +47,6 @@ extension LocationDetailView {
     
     private var imageSection: some View {
         ZStack {
-
-//            AsyncImage(url: URL(string: location.imageUrl), transaction: Transaction(animation: .spring())) { phase in
-//                switch phase {
-//                case .empty:
-//                    Color.red.opacity(0.1)
-//
-//                case .success(let image):
-//                    image
-//                        .resizable()
-//                        .scaledToFill()
-//
-//                case .failure(_):
-//                    Image(systemName: "exclamationmark.icloud")
-//                        .resizable()
-//                        .scaledToFit()
-//
-//                @unknown default:
-//                    Image(systemName: "exclamationmark.icloud")
-//                }
-//            }
-
             Image(location.name)
                 .resizable()
                 .scaledToFill()
@@ -93,6 +72,13 @@ extension LocationDetailView {
             Text(location.description)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
+            
+            if let url = URL(string: location.link) {
+                Link("詳見維基百科", destination: url)
+                    .font(.headline)
+                    .tint(.blue)
+                    .padding([.top], 10)
+            }
             
         }
     }

@@ -25,7 +25,7 @@ class LocationsViewModel: ObservableObject {
     }
     
     @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
-    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.06, longitudeDelta: 0.06)
+    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     
     @Published var showLocationList: Bool = false
     

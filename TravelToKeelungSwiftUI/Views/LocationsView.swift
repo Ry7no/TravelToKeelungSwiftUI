@@ -13,6 +13,9 @@ struct LocationsView: View {
     @EnvironmentObject private var locationsVM: LocationsViewModel
     @EnvironmentObject var launchScreenManager: LaunchScreenManager
     
+    private let timer = Timer.publish(every: 0.35, on: .main, in: .common).autoconnect()
+    @State private var isShakeAnimating: Bool = false
+    
     var body: some View {
         ZStack {
             mapLayer
@@ -30,7 +33,7 @@ struct LocationsView: View {
             LocationDetailView(location: location)
         }
         .onAppear{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.3) {
                 launchScreenManager.dismiss()
             }
         }
@@ -84,11 +87,18 @@ extension LocationsView {
             annotationContent: { location in
             MapAnnotation(coordinate: location.coordinates) {
                 LocationMapAnnotationView(location: location)
-                    .scaleEffect(locationsVM.mapLocation == location ? 1 : 0.7)
+                    .scaleEffect(locationsVM.mapLocation == location ? 1.1 : 0.7)
+                    .rotationEffect(Angle(degrees:  locationsVM.mapLocation == location ? (isShakeAnimating ? 8 : -8) : 0)).animation(Animation.spring())
                     .shadow(radius: 10)
-                    .onTapGesture {
-                        locationsVM.showNextLocation(location: location)
+                    .onReceive(timer) { input in
+                        isShakeAnimating.toggle()
                     }
+                    .onTapGesture {
+                        withAnimation(.spring()) {
+                            locationsVM.showNextLocation(location: location)
+                        }
+                    }
+                    
             }
         })
     }
