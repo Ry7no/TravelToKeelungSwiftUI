@@ -16,6 +16,8 @@ struct LocationsView: View {
     private let timer = Timer.publish(every: 0.35, on: .main, in: .common).autoconnect()
     @State private var isShakeAnimating: Bool = false
     
+    let maxWidthForIpad: CGFloat = 700
+    
     var body: some View {
         ZStack {
             mapLayer
@@ -24,6 +26,7 @@ struct LocationsView: View {
             VStack(spacing: 0) {
                 header
                     .padding()
+                    .frame(maxWidth: maxWidthForIpad)
                 
                 Spacer()
                 locationPreviewStack
@@ -111,6 +114,8 @@ extension LocationsView {
                     LocationPreview(location: location)
                         .shadow(color: Color.black.opacity(0.3), radius: 20, x: 5, y: 5)
                         .padding()
+                        .frame(maxWidth: maxWidthForIpad)
+                        .frame(maxWidth: .infinity)
                         .transition(.asymmetric(
                             insertion: .move(edge: .trailing),
                             removal: .move(edge: .leading)))

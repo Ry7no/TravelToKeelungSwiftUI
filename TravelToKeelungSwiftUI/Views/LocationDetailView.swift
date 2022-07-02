@@ -50,10 +50,10 @@ extension LocationDetailView {
             Image(location.name)
                 .resizable()
                 .scaledToFill()
-                .frame(width: UIScreen.main.bounds.width)
+                .frame(width: UIDevice.current.userInterfaceIdiom == .pad ? nil : UIScreen.main.bounds.width)
                 .clipped()
         }
-        .frame(height: 400)
+        .frame(height: UIDevice.current.userInterfaceIdiom == .pad ? 500 : 400)
     }
     
     private var titleSection: some View {
@@ -61,6 +61,7 @@ extension LocationDetailView {
             Text(location.name)
                 .font(.largeTitle)
                 .fontWeight(.semibold)
+            
             Text(location.cityName)
                 .font(.title3)
                 .foregroundColor(.secondary)
