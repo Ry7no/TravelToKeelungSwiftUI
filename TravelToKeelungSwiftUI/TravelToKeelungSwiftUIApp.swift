@@ -9,16 +9,22 @@ import SwiftUI
 
 @main
 struct TravelToKeelungSwiftUIApp: App {
-    
-//    @StateObject private var DataModel = DataServiceViewModel()
+
     @StateObject private var locationsVM = LocationsViewModel()
+    @StateObject var launchScreenManager = LaunchScreenManager()
     
     var body: some Scene {
         WindowGroup {
-            LocationsView()
-                .environmentObject(locationsVM)
-//                .environmentObject(DataServiceViewModel())
-//            ContentView()
+            ZStack{
+                
+                LocationsView()
+                    .environmentObject(locationsVM)
+                
+                if launchScreenManager.state != .completed {
+                    LaunchScreenView()
+                }
+            }
+            .environmentObject(launchScreenManager)
         }
     }
 }

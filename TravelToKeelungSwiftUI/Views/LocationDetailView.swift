@@ -12,6 +12,7 @@ import MapKit
 struct LocationDetailView: View {
     
     @EnvironmentObject private var locationsVM: LocationsViewModel
+    @State private var showActionSheet = false
     
     let location: Location
     
@@ -24,9 +25,12 @@ struct LocationDetailView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     titleSection
                     Divider()
+                    detailedButton
+                    Divider()
                     descriptionSection
                     Divider()
                     mapLayer
+                    
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
@@ -44,33 +48,29 @@ extension LocationDetailView {
     private var imageSection: some View {
         ZStack {
 
-            AsyncImage(url: URL(string: location.imageUrl), transaction: Transaction(animation: .spring())) { phase in
-                switch phase {
-                case .empty:
-                    Color.red.opacity(0.1)
-
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFill()
-
-                case .failure(_):
-                    Image(systemName: "exclamationmark.icloud")
-                        .resizable()
-                        .scaledToFit()
-
-                @unknown default:
-                    Image(systemName: "exclamationmark.icloud")
-                }
-            }
-//            AsyncImage(url: URL(string: location.imageUrl)) { image in
-//                image.resizable()
-//            } placeholder: {
-//                Color.white
+//            AsyncImage(url: URL(string: location.imageUrl), transaction: Transaction(animation: .spring())) { phase in
+//                switch phase {
+//                case .empty:
+//                    Color.red.opacity(0.1)
+//
+//                case .success(let image):
+//                    image
+//                        .resizable()
+//                        .scaledToFill()
+//
+//                case .failure(_):
+//                    Image(systemName: "exclamationmark.icloud")
+//                        .resizable()
+//                        .scaledToFit()
+//
+//                @unknown default:
+//                    Image(systemName: "exclamationmark.icloud")
+//                }
 //            }
-//            WebImage(url: URL(string: location.imageUrl))
-//                .resizable()
-//                .aspectRatio(contentMode: .fill)
+
+            Image(location.name)
+                .resizable()
+                .scaledToFill()
                 .frame(width: UIScreen.main.bounds.width)
                 .clipped()
         }
@@ -103,7 +103,7 @@ extension LocationDetailView {
             span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))),
             annotationItems: [location]) { location in
             MapAnnotation(coordinate: location.coordinates) {
-                LocationMapAnnotationView()
+                LocationMapAnnotationView(location: location)
                     .shadow(radius: 10)
             }
         }
@@ -111,6 +111,63 @@ extension LocationDetailView {
             .aspectRatio(1, contentMode: .fit)
             .cornerRadius(30)
             .shadow(radius: 1)
+    }
+    
+    private var detailedButton: some View {
+        
+        Button {
+            showActionSheet.toggle()
+        } label: {
+            
+            VStack (alignment: .leading, spacing: 10) {
+                
+                HStack{
+                    Image(systemName: "phone.circle.fill")
+                        .font(.title3)
+                        .foregroundColor(.secondary)
+                    
+                    Text(location.phone)
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                }
+                
+                HStack{
+                    Image(systemName: "map.circle.fill")
+                        .font(.title3)
+                        .foregroundColor(.secondary)
+                    
+                    Text(location.address)
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                }
+            }
+        }
+        .confirmationDialog("", isPresented: $showActionSheet) {
+            
+            Button {
+                guard let number = URL(string: "tel://\(location.phone)") else { return }
+                UIApplication.shared.open(number)
+            } label: {
+                Text("撥打電話")
+                    .font(.body)
+                    .foregroundColor(.secondary)
+            }
+            
+            Button {
+                let latitude = location.coordinates.latitude
+                let longitude = location.coordinates.longitude
+                if UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
+                    UIApplication.shared.open(URL(string:"comgooglemaps://?center=\(latitude),\(longitude)&zoom=14&views=traffic&q=\(latitude),\(longitude)")!, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.open(URL(string: "http://maps.google.com/maps?q=loc:\(latitude),\(longitude)&zoom=14&views=traffic&q=\(latitude),\(longitude)")!, options: [:], completionHandler: nil)
+                }
+            } label: {
+                Text("查看 Google Map")
+                    .font(.body)
+                    .foregroundColor(.secondary)
+            }
+            
+        }
     }
     
     private var backButton: some View {

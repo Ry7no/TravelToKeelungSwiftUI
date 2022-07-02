@@ -15,6 +15,8 @@ struct Location: Identifiable, Equatable {
     let description: String
     let imageUrl: String
     let imageTitle: String
+    let phone: String
+    let address: String
     let link: String
 
     var id: String {
@@ -67,6 +69,21 @@ struct LocationFromJson: Codable {
         case video = "Video"
         case mapLink = "MapLink"
         case changtime = "Changtime"
+    }
+}
+
+extension CLLocation {
+
+    func drive() {
+
+        let placemark = MKPlacemark(coordinate: self.coordinate)
+
+        let launchOptions = [
+            MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving
+        ]
+
+        MKMapItem.openMaps(with: [MKMapItem.forCurrentLocation(), MKMapItem(placemark: placemark)], launchOptions: launchOptions)
+
     }
 }
 

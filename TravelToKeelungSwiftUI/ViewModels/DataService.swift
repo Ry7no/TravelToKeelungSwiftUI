@@ -39,9 +39,11 @@ class DataServiceViewModel: ObservableObject {
             let description = LocationFromJson.cToldescribe
             let imageUrl = LocationFromJson.picture1
             let imageTitle = LocationFromJson.picdescribe1C
+            let phone = LocationFromJson.tel
+            let address = LocationFromJson.cAdd
             let link = LocationFromJson.website
             
-            self.locations.append(Location(name: name, cityName: cityName, coordinates: coordinates, description: description, imageUrl: imageUrl, imageTitle: imageTitle, link: link))
+            self.locations.append(Location(name: name, cityName: cityName, coordinates: coordinates, description: description, imageUrl: imageUrl, imageTitle: imageTitle, phone: phone, address: address, link: link))
         }
         print("self.locations.count: \(self.locations.count)")
     }

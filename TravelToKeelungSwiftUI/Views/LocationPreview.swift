@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import MapKit
 
 struct LocationPreview: View {
     
@@ -22,7 +23,12 @@ struct LocationPreview: View {
             }
             
             VStack(spacing: 8) {
-                learnMoreButton
+                
+                HStack {
+                    learnMoreButton
+                    navigationButton
+                }
+                
                 nextButton
             }
         }
@@ -43,38 +49,33 @@ extension LocationPreview {
         
         ZStack {
             
-            AsyncImage(url: URL(string: location.imageUrl), transaction: Transaction(animation: .spring())) { phase in
-                switch phase {
-                case .empty:
-                    Color.red.opacity(0.1)
-
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFill()
-
-                case .failure(_):
-                    Image(systemName: "exclamationmark.icloud")
-                        .resizable()
-                        .scaledToFit()
-
-                @unknown default:
-                    Image(systemName: "exclamationmark.icloud")
-                }
-            }
-//            AsyncImage(url: URL(string: location.imageUrl)) {image in
-//                image.resizable()
-//            } placeholder: {
-//                Color.white
+//            AsyncImage(url: URL(string: location.imageUrl), transaction: Transaction(animation: .spring())) { phase in
+//                switch phase {
+//                case .empty:
+//                    Color.red.opacity(0.1)
+//
+//                case .success(let image):
+//                    image
+//                        .resizable()
+//                        .scaledToFill()
+//
+//                case .failure(_):
+//                    Image(systemName: "exclamationmark.icloud")
+//                        .resizable()
+//                        .scaledToFit()
+//
+//                @unknown default:
+//                    Image(systemName: "exclamationmark.icloud")
+//                }
 //            }
-//            WebImage(url: URL(string: location.imageUrl))
-//                .resizable()
-//                .aspectRatio(contentMode: .fill)
+            Image(location.name)
+                .resizable()
+                .scaledToFill()
                 .frame(width: 100, height: 100)
                 .cornerRadius(10)
         }
         .padding(6)
-        .background(Color.white)
+        .background(Color.accentColor.opacity(0.7))
         .cornerRadius(10)
     }
     
@@ -95,11 +96,25 @@ extension LocationPreview {
         Button {
             locationsVM.sheetLocation = location
         } label: {
-            Text("詳細資訊")
+            Text("詳細")
                 .font(.headline)
-                .frame(width: 125, height: 35)
+                .frame(width: 65, height: 35)
         }
         .buttonStyle(.borderedProminent)
+        
+    }
+    
+    private var navigationButton: some View {
+        Button {
+            locationsVM.openMapsAppWithDirections(to: location.coordinates, destinationName: location.name)
+        } label: {
+//            Image(systemName: "mappin.and.ellipse")
+            Text("導航")
+                .font(.headline)
+                .frame(width: 40, height: 35)
+        }
+        .buttonStyle(.borderedProminent)
+        .tint(Color("DarkAccent"))
     }
     
     private var nextButton: some View {
@@ -108,9 +123,10 @@ extension LocationPreview {
         } label: {
             Text("下個景點")
                 .font(.headline)
-                .frame(width: 125, height: 35)
+                .frame(width: 140, height: 35)
         }
         .buttonStyle(.bordered)
+        .tint(.accentColor)
     }
 }
 

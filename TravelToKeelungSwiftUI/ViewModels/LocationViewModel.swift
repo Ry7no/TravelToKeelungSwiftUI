@@ -25,7 +25,7 @@ class LocationsViewModel: ObservableObject {
     }
     
     @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
-    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.06, longitudeDelta: 0.06)
     
     @Published var showLocationList: Bool = false
     
@@ -74,5 +74,13 @@ class LocationsViewModel: ObservableObject {
         
         let nextLocation = locations[nextIndex]
         showNextLocation(location: nextLocation)
+    }
+    
+    func openMapsAppWithDirections(to coordinate: CLLocationCoordinate2D, destinationName name: String) {
+      let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+      let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
+      let mapItem = MKMapItem(placemark: placemark)
+      mapItem.name = name // Provide the name of the destination in the To: field
+      mapItem.openInMaps(launchOptions: options)
     }
 }

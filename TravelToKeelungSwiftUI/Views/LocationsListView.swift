@@ -34,43 +34,42 @@ extension LocationsListView {
     private func listRowView(location: Location) -> some View {
         HStack {
             
-            if !location.imageUrl.isEmpty {
-                AsyncImage(url: URL(string: location.imageUrl), transaction: Transaction(animation: .spring())) { phase in
-                    switch phase {
-                    case .empty:
-                        Color.red.opacity(0.1)
-
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .scaledToFill()
-
-                    case .failure(_):
-                        Image(systemName: "exclamationmark.icloud")
-                            .resizable()
-                            .scaledToFit()
-
-                    @unknown default:
-                        Image(systemName: "exclamationmark.icloud")
-                    }
-                }
-//                AsyncImage(url: URL(string: location.imageUrl)) { image in
-//                    image.resizable()
-//                } placeholder: {
-//                    Color.white
+            Image(location.name)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 45, height: 45)
+                .cornerRadius(10)
+            
+            
+//            if !location.imageUrl.isEmpty {
+//                AsyncImage(url: URL(string: location.imageUrl), transaction: Transaction(animation: .spring())) { phase in
+//                    switch phase {
+//                    case .empty:
+//                        Color.red.opacity(0.1)
+//                        
+//                    case .success(let image):
+//                        image
+//                            .resizable()
+//                            .scaledToFill()
+//                        
+//                    case .failure(_):
+//                        Image(systemName: "exclamationmark.icloud")
+//                            .resizable()
+//                            .scaledToFit()
+//                        
+//                    @unknown default:
+//                        Image(systemName: "exclamationmark.icloud")
+//                    }
 //                }
-//                WebImage(url: URL(string: location.imageUrl))
+//                .frame(width: 45, height: 45)
+//                .cornerRadius(10)
+//            } else {
+//                Image(systemName: "photo.on.rectangle.angled")
 //                    .resizable()
-//                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 45, height: 45)
-                    .cornerRadius(10)
-            } else {
-                Image(systemName: "photo.on.rectangle.angled")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 45, height: 45)
-                    .cornerRadius(10)
-            }
+//                    .scaledToFit()
+//                    .frame(width: 45, height: 45)
+//                    .cornerRadius(10)
+//            }
 
             VStack(alignment: .leading) {
                 Text(location.name)

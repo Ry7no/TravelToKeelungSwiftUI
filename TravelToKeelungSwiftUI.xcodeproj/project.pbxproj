@@ -20,11 +20,13 @@
 		51F2887A285F563000F84B33 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F28879285F563000F84B33 /* LocationViewModel.swift */; };
 		51F2887C285F5C4200F84B33 /* LocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2887B285F5C4200F84B33 /* LocationsListView.swift */; };
 		51F28881285F741100F84B33 /* LocationPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F28880285F741100F84B33 /* LocationPreview.swift */; };
+		51FCEA232870224E00A34B24 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FCEA222870224E00A34B24 /* LaunchScreenView.swift */; };
+		51FCEA252870274100A34B24 /* LaunchScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FCEA242870274100A34B24 /* LaunchScreenManager.swift */; };
 		FD80C92A28603B65003CAB02 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FD80C92928603B65003CAB02 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		518F3990285DDC0600B8C755 /* TravelToKeelungSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelToKeelungSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		518F3990285DDC0600B8C755 /* 基隆來企頭.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "基隆來企頭.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		518F3993285DDC0600B8C755 /* TravelToKeelungSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelToKeelungSwiftUIApp.swift; sourceTree = "<group>"; };
 		518F3995285DDC0600B8C755 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		518F3997285DDC0800B8C755 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +40,8 @@
 		51F28879285F563000F84B33 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		51F2887B285F5C4200F84B33 /* LocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListView.swift; sourceTree = "<group>"; };
 		51F28880285F741100F84B33 /* LocationPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPreview.swift; sourceTree = "<group>"; };
+		51FCEA222870224E00A34B24 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		51FCEA242870274100A34B24 /* LaunchScreenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +67,7 @@
 		518F3991285DDC0600B8C755 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				518F3990285DDC0600B8C755 /* TravelToKeelungSwiftUI.app */,
+				518F3990285DDC0600B8C755 /* 基隆來企頭.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,7 +80,7 @@
 				518F39A5285DDDD900B8C755 /* ViewModels */,
 				518F39A4285DDDD200B8C755 /* Views */,
 				518F3993285DDC0600B8C755 /* TravelToKeelungSwiftUIApp.swift */,
-				518F3995285DDC0600B8C755 /* ContentView.swift */,
+				51FCEA222870224E00A34B24 /* LaunchScreenView.swift */,
 				518F3997285DDC0800B8C755 /* Assets.xcassets */,
 				518F3999285DDC0800B8C755 /* Preview Content */,
 			);
@@ -94,6 +98,7 @@
 		518F39A4285DDDD200B8C755 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				518F3995285DDC0600B8C755 /* ContentView.swift */,
 				51F28877285F538400F84B33 /* LocationsView.swift */,
 				51F2887B285F5C4200F84B33 /* LocationsListView.swift */,
 				51F28880285F741100F84B33 /* LocationPreview.swift */,
@@ -108,6 +113,7 @@
 			children = (
 				51F28875285F4EE800F84B33 /* DataService.swift */,
 				51F28879285F563000F84B33 /* LocationViewModel.swift */,
+				51FCEA242870274100A34B24 /* LaunchScreenManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -140,7 +146,7 @@
 				FD80C92928603B65003CAB02 /* SDWebImageSwiftUI */,
 			);
 			productName = TravelToKeelungSwiftUI;
-			productReference = 518F3990285DDC0600B8C755 /* TravelToKeelungSwiftUI.app */;
+			productReference = 518F3990285DDC0600B8C755 /* 基隆來企頭.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +211,9 @@
 				518F39AA285DDF8400B8C755 /* Location.swift in Sources */,
 				51F28878285F538400F84B33 /* LocationsView.swift in Sources */,
 				51F28876285F4EE800F84B33 /* DataService.swift in Sources */,
+				51FCEA232870224E00A34B24 /* LaunchScreenView.swift in Sources */,
 				51EBBDAD285F86CC00513E36 /* LocationDetailView.swift in Sources */,
+				51FCEA252870274100A34B24 /* LaunchScreenManager.swift in Sources */,
 				518F3994285DDC0600B8C755 /* TravelToKeelungSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,9 +355,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.novachen.TravelToKeelungSwiftUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "基隆來企頭";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -376,9 +384,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.novachen.TravelToKeelungSwiftUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "基隆來企頭";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

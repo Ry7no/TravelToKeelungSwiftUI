@@ -11,6 +11,7 @@ import MapKit
 struct LocationsView: View {
     
     @EnvironmentObject private var locationsVM: LocationsViewModel
+    @EnvironmentObject var launchScreenManager: LaunchScreenManager
     
     var body: some View {
         ZStack {
@@ -27,6 +28,11 @@ struct LocationsView: View {
         }
         .sheet(item: $locationsVM.sheetLocation, onDismiss: nil) { location in
             LocationDetailView(location: location)
+        }
+        .onAppear{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                launchScreenManager.dismiss()
+            }
         }
     }
 }
@@ -77,7 +83,7 @@ extension LocationsView {
             annotationItems: locationsVM.locations,
             annotationContent: { location in
             MapAnnotation(coordinate: location.coordinates) {
-                LocationMapAnnotationView()
+                LocationMapAnnotationView(location: location)
                     .scaleEffect(locationsVM.mapLocation == location ? 1 : 0.7)
                     .shadow(radius: 10)
                     .onTapGesture {
